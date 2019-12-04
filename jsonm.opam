@@ -1,5 +1,4 @@
 opam-version: "2.0"
-name: "jsonm"
 synopsis: "Non-blocking streaming JSON codec for OCaml"
 description: """\
 Jsonm is a non-blocking streaming codec to decode and encode the JSON
@@ -18,17 +17,15 @@ Home page: http://erratique.ch/software/jsonm
 Contact: Daniel Bünzli `<daniel.buenzl i@erratique.ch>`"""
 maintainer: "Daniel Bünzli <daniel.buenzl i@erratique.ch>"
 authors: "The jsonm programmers"
-license: "ISC"
-tags: ["json" "codec" "org:erratique"]
-homepage: "https://erratique.ch/software/jsonm"
-doc: "https://erratique.ch/software/jsonm/doc/"
+homepage: "http://erratique.ch/software/jsonm"
+doc: "http://erratique.ch/software/jsonm/doc/Jsonm"
+dev-repo: "git+https://github.com/dune-universe/jsonm.git"
 bug-reports: "https://github.com/dbuenzli/jsonm/issues"
+tags: [ "json" "codec" "org:erratique" ]
+license: "ISC"
 depends: [
+  "dune"
   "ocaml" {>= "4.05.0"}
-  "ocamlfind" {build}
-  "ocamlbuild" {build}
-  "topkg" {build & >= "1.0.3"}
   "uutf" {> "1.0.0"}
 ]
-build: ["ocaml" "pkg/pkg.ml" "build" "--dev-pkg" "%{dev}%"]
-dev-repo: "git+https://erratique.ch/repos/jsonm.git"
+build: [[ "dune" "build" "-p" name ]]
